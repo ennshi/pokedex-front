@@ -4,6 +4,7 @@ import Home from './components/home/Home/Home';
 import Likes from './components/likes/Likes/Likes';
 import Navbar from './components/main-layout/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
+import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route component={ NotFound } />
                 </Switch>
             </Router>
+            <PokemonDetails />
         </main>
     );
 };
