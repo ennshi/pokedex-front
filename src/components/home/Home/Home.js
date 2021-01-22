@@ -1,18 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PokemonList from '../../common/PokemonList/PokemonList';
 import SearchBar from '../SearchBar/SearchBar';
 import InfiniteScrollList from '../../common/InfiniteScrollList';
 import {LIMIT_POKEMONS, POKEMONS_URL} from '../../constants/FetchData';
 
 const Home = () => {
+    const [search, setSearch] = useState(null);
     const [pokemons, setPokemons] = useState([]);
     const [errors, setErrors] = useState(null);
+    const [urlToFetch, setUrlToFetch] = useState(POKEMONS_URL);
+    useEffect(() => {
+        if(search) {
+            setErrors(null);
+            setPokemons([]);
+            setUrlToFetch(`${POKEMONS_URL}?filter=${search.property}::${search.value}`);
+        }
+    }, [search]);
     return (
         <section>
-            <SearchBar />
-            {(!errors &&
+            <SearchBar setSearch={setSearch}/>
+            {((!errors && urlToFetch) &&
                 <InfiniteScrollList
-                    url={POKEMONS_URL}
+                    url={urlToFetch}
                     setItems={setPokemons}
                     setErrors={setErrors}
                     items={pokemons}
