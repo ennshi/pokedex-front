@@ -6,11 +6,16 @@ const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) 
     const [hasNextPage, setHasNextPage] = useState(true);
     const [loading, setLoading] = useState();
     const page = useRef(25);
-    console.log(loading, hasNextPage);
+    useEffect(() => {
+        page.current = 1;
+        setHasNextPage(true);
+    }, [url]);
     const handleLoadMoreItems = async () => {
         setLoading(true);
         const fetchedData = await fetchData({
-            url: `${url}?page=${page.current}`,
+            url: (url.includes('?')) ?
+                `${url}&page=${page.current}` :
+                `${url}?page=${page.current}`,
             method: 'GET'
         });
         setLoading(false);
