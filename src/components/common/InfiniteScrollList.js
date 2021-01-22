@@ -5,10 +5,14 @@ import useInfiniteScroll from 'react-infinite-scroll-hook';
 const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) => {
     const [hasNextPage, setHasNextPage] = useState(true);
     const [loading, setLoading] = useState();
-    const page = useRef(25);
+    const cancelFetch = useRef(false);
+    const page = useRef(1);
     useEffect(() => {
         page.current = 1;
         setHasNextPage(true);
+        return () => {
+            cancelFetch.current = true
+        };
     }, [url]);
     const handleLoadMoreItems = async () => {
         setLoading(true);
@@ -18,18 +22,20 @@ const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) 
                 `${url}?page=${page.current}`,
             method: 'GET'
         });
-        setLoading(false);
-        if(!fetchedData.errors.length) {
-            page.current++;
-            if(fetchedData.response.data.length < limitItems) {
-                setHasNextPage(false);
+        if (!cancelFetch.current) {
+            setLoading(false);
+            if (!fetchedData.errors.length) {
+                page.current++;
+                if (fetchedData.response.data.length < limitItems) {
+                    setHasNextPage(false);
+                }
+                return setItems((prevState) => prevState.length ?
+                    [...prevState, ...fetchedData.response.data] :
+                    [...fetchedData.response.data]);
             }
-            return setItems((prevState) => prevState.length ?
-                [...prevState, ...fetchedData.response.data] :
-                [...fetchedData.response.data]);
+            setHasNextPage(false);
+            setErrors(fetchedData.errors);
         }
-        setHasNextPage(false);
-        setErrors(fetchedData.errors);
     };
     const infiniteRef = useInfiniteScroll({
         loading,
