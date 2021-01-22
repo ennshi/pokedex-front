@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {ModalContext} from '../../../contexts/ModalContext';
 
-const Modal = (props) => {
+const Modal = ({ children }) => {
+    const { toggleShowModal } = useContext(ModalContext);
     return (
         <section>
-            { props.children }
+            <div>
+                <button onClick={toggleShowModal}>&times;</button>
+            </div>
+            { children }
         </section>
     );
 };

@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {ModalContextProvider} from './contexts/ModalContext';
+import {PokemonDetailsContextProvider} from './contexts/PokemonDetailsContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <ModalContextProvider>
+          <PokemonDetailsContextProvider>
+            <App />
+          </PokemonDetailsContextProvider>
+      </ModalContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
