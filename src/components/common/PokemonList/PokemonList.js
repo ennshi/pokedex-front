@@ -1,10 +1,19 @@
 import React from 'react';
+import PokemonCard from '../PokemonCard/PokemonCard';
 
-const PokemonList = () => {
+const PokemonList = ({ pokemons }) => {
     return (
-        <section>
-            PokemonList
-        </section>
+        <>
+            {!pokemons.length ?
+                <section>
+                    PokemonList
+                </section> :
+                <section>
+                    {pokemons.map((p, i) => <PokemonCard pokemon={p} key={i}/>)}
+                </section>
+            }
+        </>
+
     );
 };
 
