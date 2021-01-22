@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {ModalContext} from '../../../contexts/ModalContext';
 
 const PokemonCard = ({ pokemon }) => {
+    const { toggleShowModal } = useContext(ModalContext);
     return (
-        <article>
+        <article onClick={toggleShowModal}>
             { pokemon.name }
         </article>
     );
