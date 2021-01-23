@@ -1,0 +1,9 @@
+.pokemon-list__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 62px 0 75px 0;
+  box-sizing: border-box;
+}

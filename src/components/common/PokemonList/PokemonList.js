@@ -1,5 +1,6 @@
 import React from 'react';
 import PokemonCard from '../PokemonCard/PokemonCard';
+import './PokemonList.css';
 
 const PokemonList = ({ pokemons }) => {
     return (
@@ -8,7 +9,7 @@ const PokemonList = ({ pokemons }) => {
                 <section>
                     PokemonList
                 </section> :
-                <section>
+                <section className="pokemon-list__container">
                     {pokemons.map((p, i) => <PokemonCard pokemon={p} key={i}/>)}
                 </section>
             }

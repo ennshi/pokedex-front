@@ -6,11 +6,12 @@ import Navbar from './components/main-layout/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 import {ModalContext} from './contexts/ModalContext';
+import './App.css';
 
 const App = () => {
     const { showModal } = useContext(ModalContext);
     return (
-        <main>
+        <main className="app__container">
             <Router>
                 <Navbar />
                 <Switch>
