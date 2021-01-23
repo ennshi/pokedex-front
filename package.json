@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
     "react-infinite-scroll-hook": "^3.0.0",
     "react-loading-skeleton": "^2.1.1",
     "react-router-dom": "^5.2.0",
