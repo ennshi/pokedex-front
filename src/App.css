@@ -1,0 +1,16 @@
+.app__container {
+  width: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1010px) {
+  .app__container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
