@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
 import ShadowButton from '../../common/ShadowButton/ShadowButton';
+import './Navbar.css';
 
 const Navbar = () => {
     const history = useHistory();
@@ -10,7 +11,7 @@ const Navbar = () => {
         setCurPath(path);
     };
     return (
-        <nav>
+        <nav className="navbar__container">
             <ShadowButton text="Pokedex" onClick={() => redirectTo('/')} disabled={curPath === '/'} />
             <ShadowButton text="Likes" onClick={() => redirectTo('/likes')} disabled={curPath === '/likes'} />
         </nav>
