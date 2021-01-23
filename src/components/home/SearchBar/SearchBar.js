@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchField from '../../common/SearchField/SearchField';
 import {debouncer, cancelDebouncer} from '../../../helpers/debouncer';
+import './SearchBar.css';
 
 const SearchBar = ({setSearch}) => {
     const searchOnChange = (search) => {
@@ -13,7 +14,7 @@ const SearchBar = ({setSearch}) => {
         }
     };
     return (
-        <section>
+        <section className="searchbar__container">
             <SearchField
                 placeholder="Search ..."
                 handleChange={searchOnChange}
