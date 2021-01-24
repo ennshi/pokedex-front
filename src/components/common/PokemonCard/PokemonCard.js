@@ -14,7 +14,6 @@ const PokemonCard = ({ pokemon }) => {
         setPokemonDetailsId(pokemon.id);
         toggleShowModal();
     };
-    console.log(pokemon);
     return (
         <article className="pokemon-card__container">
             <div className="pokemon-card__media" onClick={handleClick}>

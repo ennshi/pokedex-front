@@ -10,11 +10,15 @@ const Home = () => {
     const [errors, setErrors] = useState(null);
     const [urlToFetch, setUrlToFetch] = useState(POKEMONS_URL);
     useEffect(() => {
-        if(search) {
+        if(search?.value) {
             setErrors(null);
             setPokemons([]);
             setUrlToFetch(`${POKEMONS_URL}?filter=${search.property}::${search.value}`);
+            return;
         }
+        setErrors(null);
+        setPokemons([]);
+        setUrlToFetch(POKEMONS_URL);
     }, [search]);
     return (
         <section>
