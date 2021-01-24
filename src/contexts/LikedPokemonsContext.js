@@ -33,7 +33,6 @@ function reducer(state, {type, payload}) {
 
 export const LikedPokemonsProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state);
     const getLikedIds = async () => {
         const fetchedData = await fetchData({
             url: LIKED_POKEMON_IDS,
