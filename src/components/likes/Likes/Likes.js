@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import PokemonList from '../../common/PokemonList/PokemonList';
 import InfiniteScrollList from '../../common/InfiniteScrollList';
 import {LIKES_URL, LIMIT_POKEMONS} from '../../constants/FetchData';
+import {LikedPokemonsContext} from '../../../contexts/LikedPokemonsContext';
 
 const Likes = () => {
+    const { likedPokemonsIds } = useContext(LikedPokemonsContext);
     const [likedPokemons, setLikedPokemons] = useState([]);
     const [errors, setErrors] = useState(null);
+    useEffect(() => {
+        setLikedPokemons(pokemons => pokemons.filter(pokemon => likedPokemonsIds.includes(pokemon.id)));
+    }, [likedPokemonsIds]);
     return (
         <section>
             {(!errors &&
