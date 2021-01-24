@@ -42,6 +42,7 @@ export const LikedPokemonsProvider = ({children}) => {
         if(!fetchedData.errors.length) {
             return dispatch({type: LIKE_POKEMONS.SET_LIKED_IDS, payload: fetchedData.response.data});
         }
+        return dispatch({type: LIKE_POKEMONS.SET_ERROR, payload: fetchedData.errors})
     };
     const addToLikedIds = async (id) => {
         const addPokemon = await fetchData({
@@ -52,6 +53,7 @@ export const LikedPokemonsProvider = ({children}) => {
         if(!addPokemon.errors.length) {
             return dispatch({type: LIKE_POKEMONS.ADD_TO_LIKED_IDS, payload: id});
         }
+        return dispatch({type: LIKE_POKEMONS.SET_ERROR, payload: addPokemon.errors})
     };
     const removeFromLikedIds = async (id) => {
         const deletePokemon = await fetchData({
@@ -61,6 +63,7 @@ export const LikedPokemonsProvider = ({children}) => {
         if(!deletePokemon.errors.length) {
             return dispatch({type: LIKE_POKEMONS.REMOVE_FROM_LIKED_IDS, payload: id});
         }
+        return dispatch({type: LIKE_POKEMONS.SET_ERROR, payload: deletePokemon.errors})
     };
     useEffect(() => {
         getLikedIds();
