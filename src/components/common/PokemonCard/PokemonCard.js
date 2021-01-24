@@ -40,7 +40,9 @@ const PokemonCard = ({ pokemon }) => {
                     }
                 </div>
                 <div className="pokemon-card__like">
-                    <LikeButton />
+                    <LikeButton
+                        pokemonId={pokemon.id}
+                    />
                 </div>
             </div>
         </article>
