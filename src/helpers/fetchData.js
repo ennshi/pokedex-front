@@ -4,7 +4,9 @@ export default async ({url, method, data}) => {
     const options = {
         crossDomain: true,
         method,
-        'Content-Type': 'application/json'
+        headers: {
+            'Content-Type': 'application/json'
+        }
     };
     if(method === 'POST') {
         Object.assign(options, { body: data });
