@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ModalContextProvider} from './contexts/ModalContext';
 import {PokemonDetailsContextProvider} from './contexts/PokemonDetailsContext';
+import {LikedPokemonsProvider} from './contexts/LikedPokemonsContext';
 
 ReactDOM.render(
   <React.StrictMode>
-      <ModalContextProvider>
-          <PokemonDetailsContextProvider>
-            <App />
-          </PokemonDetailsContextProvider>
-      </ModalContextProvider>
+      <LikedPokemonsProvider>
+          <ModalContextProvider>
+              <PokemonDetailsContextProvider>
+                <App />
+              </PokemonDetailsContextProvider>
+          </ModalContextProvider>
+      </LikedPokemonsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
