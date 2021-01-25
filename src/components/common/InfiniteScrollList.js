@@ -69,7 +69,7 @@ const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) 
 
     return (
         <div ref={infiniteRef}>
-            { children }
+            {!(loading && page.current === 1) && children }
             {loading && <h5>Loading...</h5>}
         </div>
     );
