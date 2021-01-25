@@ -7,8 +7,9 @@ const SelectField = ({ name, options, classNames, handleKeyDown, handleChange, p
             className={classNames}
             onKeyDown={handleKeyDown}
             onChange={handleChange}
+            defaultValue=""
         >
-            <option value="" selected disabled> { placeholder } </option>
+            <option value="" disabled> { placeholder } </option>
             {options.length && options.map((op, i) => {
                 return (
                     <option key={i} value={op.value}>
