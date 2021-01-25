@@ -14,6 +14,7 @@ import {BG_COLORS, TYPES_STYLING} from '../constants/colors';
 import Chip from '../common/Chip/Chip';
 import LikeButton from '../common/LikeButton/LikeButton';
 import Error from '../common/Error/Error';
+import Loader from '../common/Loader/Loader';
 
 const PokemonDetails = () => {
     const { pokemonDetailsId } = useContext(PokemonDetailsContext);
@@ -144,8 +145,8 @@ const PokemonDetails = () => {
                 </section>
                 }
                 {loading &&
-                <section className="pokemon-details__container">
-                    loading...
+                <section className="pokemon-details__container--loading">
+                    <Loader />
                 </section>
                 }
                 {errors &&

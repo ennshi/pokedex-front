@@ -98,3 +98,7 @@
   top: 7px;
   left: 30px;
 }
+
+.pokemon-details__container--loading {
+  min-height: 200px;
+}

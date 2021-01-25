@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import fetchData from '../../helpers/fetchData';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import {getFromSessionStorage, setItemSessionStorage} from '../../helpers/sessionStorage';
+import Loader from './Loader/Loader';
 
 const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) => {
     const [hasNextPage, setHasNextPage] = useState(true);
@@ -70,7 +71,7 @@ const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) 
     return (
         <div ref={infiniteRef}>
             {!(loading && page.current === 1) && children }
-            {loading && <h5>Loading...</h5>}
+            {loading && <Loader />}
         </div>
     );
 };
