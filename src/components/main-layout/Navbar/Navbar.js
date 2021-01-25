@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <nav className="navbar__container">
             <ShadowButton text="Pokedex" onClick={() => redirectTo('/')} disabled={curPath === '/'} />
-            <ShadowButton text="Likes" onClick={() => redirectTo('/likes')} disabled={curPath === '/likes'} />
+            <ShadowButton text="Liked" onClick={() => redirectTo('/liked')} disabled={curPath === '/liked'} />
         </nav>
     );
 };

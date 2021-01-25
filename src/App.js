@@ -16,7 +16,7 @@ const App = () => {
                 <Navbar />
                 <Switch>
                     <Route path="/" exact component={ Home } />
-                    <Route path="/likes" component={ Likes } />
+                    <Route path="/liked" component={ Likes } />
                     <Route component={ NotFound } />
                 </Switch>
             </Router>
