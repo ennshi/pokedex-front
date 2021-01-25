@@ -1,7 +1,6 @@
 import React from 'react';
-import './InputField.css';
 
-const InputField = ({ placeholder, handleChange, handleKeyDown, name, inputType, min }) => {
+const InputField = ({ placeholder, handleChange, handleKeyDown, name, inputType, min, classNames }) => {
     return (
         <div className="input-field__container">
             <input
@@ -10,7 +9,7 @@ const InputField = ({ placeholder, handleChange, handleKeyDown, name, inputType,
                 onChange={(e) => handleChange(e)}
                 onKeyDown={(e) => handleKeyDown(e)}
                 name={name}
-                className="input-field__element"
+                className={classNames}
                 min={inputType === 'number' ? min : ''}
             />
         </div>

@@ -39,6 +39,7 @@ const SearchBar = ({setSearch}) => {
                 handleKeyDown={handleKeyDown}
                 name="name"
                 inputType="text"
+                classNames="input-field__element"
             />
             <InputField
                 placeholder="Number"
@@ -47,6 +48,7 @@ const SearchBar = ({setSearch}) => {
                 name="id"
                 inputType="number"
                 min="1"
+                classNames="input-field__element"
             />
             <InputField
                 placeholder="Type"
