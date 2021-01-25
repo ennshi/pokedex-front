@@ -1,20 +1,20 @@
 import React from 'react';
-import './SearchField.css';
+import './InputField.css';
 
-const SearchField = ({ placeholder, handleChange, handleKeyDown, name, inputType, min }) => {
+const InputField = ({ placeholder, handleChange, handleKeyDown, name, inputType, min }) => {
     return (
-        <div className="search-field__container">
+        <div className="input-field__container">
             <input
                 type={inputType}
                 placeholder={placeholder}
                 onChange={(e) => handleChange(e)}
                 onKeyDown={(e) => handleKeyDown(e)}
                 name={name}
-                className="search-field__input"
+                className="input-field__element"
                 min={inputType === 'number' ? min : ''}
             />
         </div>
     );
 };
 
-export default SearchField;
+export default InputField;

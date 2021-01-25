@@ -1,4 +1,4 @@
-.search-field__input {
+.input-field__element {
   border-radius: 18px;
   box-shadow: 0 4px 16px -3px rgba(0, 0, 0, 0.07);
   height: 36px;
@@ -13,24 +13,24 @@
   margin: 3px 9px;
 }
 
-.search-field__input:focus {
+.input-field__element:focus {
   box-shadow: 0 4px 16px -3px rgba(0, 0, 0, 0.15);
 }
 
-.search-field__input {
+.input-field__element {
   width: 160px;
 }
 
-.search-field__input[name=type] {
+.input-field__element[name=type] {
   width: 131px;
 }
 
-.search-field__input[name=id] {
+.input-field__element[name=id] {
   width: 102px;
 }
 
 @media only screen and (min-width: 670px) {
-  .search-field__input[name=name] {
+  .input-field__element[name=name] {
     width: 405px;
   }
 }

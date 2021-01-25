@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchField from '../../common/SearchField/SearchField';
+import InputField from '../../common/InputField/InputField';
 import {debouncer, cancelDebouncer} from '../../../helpers/debouncer';
 import './SearchBar.css';
 
@@ -33,14 +33,14 @@ const SearchBar = ({setSearch}) => {
 
     return (
         <section className="searchbar__container">
-            <SearchField
+            <InputField
                 placeholder="Search ..."
                 handleChange={handleChange}
                 handleKeyDown={handleKeyDown}
                 name="name"
                 inputType="text"
             />
-            <SearchField
+            <InputField
                 placeholder="Number"
                 handleChange={handleChange}
                 handleKeyDown={handleKeyDown}
@@ -48,7 +48,7 @@ const SearchBar = ({setSearch}) => {
                 inputType="number"
                 min="1"
             />
-            <SearchField
+            <InputField
                 placeholder="Type"
                 handleChange={handleChange}
                 handleKeyDown={handleKeyDown}
