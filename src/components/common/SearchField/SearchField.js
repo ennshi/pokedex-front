@@ -1,28 +1,17 @@
 import React from 'react';
 import './SearchField.css';
 
-const SearchField = ({ placeholder, handleChange, handleKeyDown, name }) => {
-    const onChange = ({target}) => {
-        handleChange({
-            property: target.name,
-            value: target.value
-        });
-    };
-    const onKeyDown = ({target, code}) => {
-        handleKeyDown(code, {
-            property: target.name,
-            value: target.value
-        });
-    };
+const SearchField = ({ placeholder, handleChange, handleKeyDown, name, inputType, min }) => {
     return (
         <div className="search-field__container">
             <input
-                type="text"
+                type={inputType}
                 placeholder={placeholder}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
+                onChange={(e) => handleChange(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
                 name={name}
                 className="search-field__input"
+                min={inputType === 'number' ? min : ''}
             />
         </div>
     );
