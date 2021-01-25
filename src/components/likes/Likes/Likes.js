@@ -8,10 +8,12 @@ import Error from '../../common/Error/Error';
 
 const Likes = () => {
     const { likedPokemonsIds } = useContext(LikedPokemonsContext);
-    const [likedPokemons, setLikedPokemons] = useState([]);
+    const [likedPokemons, setLikedPokemons] = useState(null);
     const [errors, setErrors] = useState(null);
     useEffect(() => {
-        setLikedPokemons(pokemons => pokemons.filter(pokemon => likedPokemonsIds.includes(pokemon.id)));
+        if(likedPokemons?.length) {
+            setLikedPokemons(pokemons => pokemons.filter(pokemon => likedPokemonsIds.includes(pokemon.id)));
+        }
     }, [likedPokemonsIds]);
     return (
         <section className="likes__container">
@@ -23,7 +25,7 @@ const Likes = () => {
                     items={likedPokemons}
                     limitItems={LIMIT_POKEMONS}
                 >
-                    <PokemonList pokemons={likedPokemons}/>
+                    {likedPokemons && <PokemonList pokemons={likedPokemons}/>}
                 </InfiniteScrollList>
             )}
             {(errors && <Error errors={errors} /> )}

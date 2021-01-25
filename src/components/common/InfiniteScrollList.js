@@ -6,7 +6,7 @@ import Loader from './Loader/Loader';
 
 const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) => {
     const [hasNextPage, setHasNextPage] = useState(true);
-    const [loading, setLoading] = useState();
+    const [loading, setLoading] = useState(false);
     const cancelFetch = useRef(false);
     const page = useRef(1);
     useEffect(() => {
@@ -53,7 +53,7 @@ const InfiniteScrollList = ({ url, setItems, setErrors, limitItems, children }) 
                 if (response.data.length < limitItems) {
                     setHasNextPage(false);
                 }
-                return setItems((prevState) => prevState.length ?
+                return setItems((prevState) => prevState?.length ?
                     [...prevState, ...response.data] :
                     [...response.data]);
             }
