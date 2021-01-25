@@ -4,7 +4,7 @@ import Backdrop from '../common/modal/Backdrop';
 import Modal from '../common/modal/Modal';
 import fetchData from '../../helpers/fetchData';
 import {PokemonDetailsContext} from '../../contexts/PokemonDetailsContext';
-import {POKEMON_URL} from '../constants/FetchData';
+import {POKEMON_URL} from '../constants/urls';
 import './PokemonDetails.css';
 import Image from '../common/Image/Image';
 import ChipIcon from '../common/Chip/ChipIcon';

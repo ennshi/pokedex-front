@@ -5,7 +5,7 @@ import './SearchBar.css';
 
 const SearchBar = ({setSearch}) => {
     const searchOnChange = (search) => {
-        debouncer(1000, () => setSearch(search));
+        debouncer(1700, () => setSearch(search));
     };
     const searchOnEnter = (key, search) => {
         if(key === 'Enter') {
