@@ -1,3 +1,10 @@
+export const BG_COLORS = {
+    red: '#ff8a8a',
+    yellow: '#ffe175',
+    green: '#b4fe7b',
+    blue: '#5f9fff',
+};
+
 export const TYPES_STYLING = {
     'Normal': '#cacaca',
     'Electric': '#ffe175',
