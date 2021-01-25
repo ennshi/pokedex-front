@@ -20,7 +20,6 @@ const PokemonDetails = () => {
     const [errors, setErrors] = useState(null);
     const [loading, setLoading] = useState(false);
     const cancelFetch = useRef(false);
-    console.log(pokemon);
     const fetchPokemon = async () => {
         setLoading(true);
         const fetchedData = await fetchData({
