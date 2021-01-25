@@ -3,6 +3,8 @@ import PokemonList from '../../common/PokemonList/PokemonList';
 import InfiniteScrollList from '../../common/InfiniteScrollList';
 import {LIKES_URL, LIMIT_POKEMONS} from '../../constants/FetchData';
 import {LikedPokemonsContext} from '../../../contexts/LikedPokemonsContext';
+import './Likes.css';
+import Error from '../../common/Error/Error';
 
 const Likes = () => {
     const { likedPokemonsIds } = useContext(LikedPokemonsContext);
@@ -12,7 +14,7 @@ const Likes = () => {
         setLikedPokemons(pokemons => pokemons.filter(pokemon => likedPokemonsIds.includes(pokemon.id)));
     }, [likedPokemonsIds]);
     return (
-        <section>
+        <section className="likes__container">
             {(!errors &&
                 <InfiniteScrollList
                     url={LIKES_URL}
@@ -24,7 +26,7 @@ const Likes = () => {
                     <PokemonList pokemons={likedPokemons}/>
                 </InfiniteScrollList>
             )}
-            {(errors && <h5>Some error</h5>)}
+            {(errors && <Error errors={errors} /> )}
         </section>
     );
 };

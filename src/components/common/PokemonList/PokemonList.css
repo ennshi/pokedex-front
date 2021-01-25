@@ -7,3 +7,10 @@
   margin: 62px 0 75px 0;
   box-sizing: border-box;
 }
+
+.pokemon-list__error {
+  color: #ff8a8a;
+  letter-spacing: 0.04rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
