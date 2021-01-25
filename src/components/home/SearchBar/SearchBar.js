@@ -2,6 +2,8 @@ import React from 'react';
 import InputField from '../../common/InputField/InputField';
 import {debouncer, cancelDebouncer} from '../../../helpers/debouncer';
 import './SearchBar.css';
+import SelectField from '../../common/SelectField/SelectField';
+import {TYPE_OPTIONS} from '../../constants/selectOptions';
 
 const SearchBar = ({setSearch}) => {
     const convertNumberInput = (property, value) => {
@@ -50,11 +52,13 @@ const SearchBar = ({setSearch}) => {
                 min="1"
                 classNames="input-field__element"
             />
-            <InputField
+            <SelectField
                 placeholder="Type"
                 handleChange={handleChange}
                 handleKeyDown={handleKeyDown}
                 name="type"
+                options={TYPE_OPTIONS}
+                classNames="input-field__element"
             />
         </section>
     );
