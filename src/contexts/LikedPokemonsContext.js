@@ -13,7 +13,7 @@ const LIKE_POKEMONS = {
 
 const initialState = {
     liked_ids: [],
-    error: null
+    errors: null
 };
 
 function reducer(state, {type, payload}) {
@@ -25,7 +25,7 @@ function reducer(state, {type, payload}) {
         case LIKE_POKEMONS.REMOVE_FROM_LIKED_IDS:
             return {...state, liked_ids: state.liked_ids.filter(id => id !== payload)};
         case LIKE_POKEMONS.SET_ERROR:
-            return {...state, error: payload};
+            return {...state, errors: payload};
         default:
             return state;
     }
@@ -68,7 +68,13 @@ export const LikedPokemonsProvider = ({children}) => {
         getLikedIds();
     }, []);
     return (
-        <LikedPokemonsContext.Provider value={{likedPokemonsIds : state.liked_ids, addToLikedIds, removeFromLikedIds}}>
+        <LikedPokemonsContext.Provider
+            value={{
+                likedPokemonsIds: state.liked_ids,
+                errors: state.errors,
+                addToLikedIds,
+                removeFromLikedIds
+        }}>
             {children}
         </LikedPokemonsContext.Provider>
     );

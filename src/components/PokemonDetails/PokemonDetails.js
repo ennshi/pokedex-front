@@ -13,6 +13,7 @@ import { RiSpeedFill } from "react-icons/ri";
 import {BG_COLORS, TYPES_STYLING} from '../constants/colors';
 import Chip from '../common/Chip/Chip';
 import LikeButton from '../common/LikeButton/LikeButton';
+import Error from '../common/Error/Error';
 
 const PokemonDetails = () => {
     const { pokemonDetailsId } = useContext(PokemonDetailsContext);
@@ -149,7 +150,7 @@ const PokemonDetails = () => {
                 }
                 {errors &&
                 <section className="pokemon-details__container">
-                    Some error
+                    <Error errors={errors} />
                 </section>
                 }
             </Modal>

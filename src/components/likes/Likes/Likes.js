@@ -4,6 +4,7 @@ import InfiniteScrollList from '../../common/InfiniteScrollList';
 import {LIKES_URL, LIMIT_POKEMONS} from '../../constants/FetchData';
 import {LikedPokemonsContext} from '../../../contexts/LikedPokemonsContext';
 import './Likes.css';
+import Error from '../../common/Error/Error';
 
 const Likes = () => {
     const { likedPokemonsIds } = useContext(LikedPokemonsContext);
@@ -25,7 +26,7 @@ const Likes = () => {
                     <PokemonList pokemons={likedPokemons}/>
                 </InfiniteScrollList>
             )}
-            {(errors && <h5>Some error</h5>)}
+            {(errors && <Error errors={errors} /> )}
         </section>
     );
 };

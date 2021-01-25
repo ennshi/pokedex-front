@@ -3,6 +3,7 @@ import PokemonList from '../../common/PokemonList/PokemonList';
 import SearchBar from '../SearchBar/SearchBar';
 import InfiniteScrollList from '../../common/InfiniteScrollList';
 import {LIMIT_POKEMONS, POKEMONS_URL} from '../../constants/FetchData';
+import Error from '../../common/Error/Error';
 
 const Home = () => {
     const [search, setSearch] = useState(null);
@@ -34,7 +35,7 @@ const Home = () => {
                     <PokemonList pokemons={pokemons}/>
                 </InfiniteScrollList>
             )}
-            {(errors && <h5>Some error</h5>)}
+            {(errors && <Error errors={errors} /> )}
         </section>
     );
 };
