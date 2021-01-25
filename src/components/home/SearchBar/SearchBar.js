@@ -1,9 +1,15 @@
 import React from 'react';
-import SearchField from '../../common/SearchField/SearchField';
+import InputField from '../../common/InputField/InputField';
 import {debouncer, cancelDebouncer} from '../../../helpers/debouncer';
 import './SearchBar.css';
+import SelectField from '../../common/SelectField/SelectField';
+import {TYPE_OPTIONS} from '../../constants/selectOptions';
 
 const SearchBar = ({setSearch}) => {
+    const convertNumberInput = (property, value) => {
+        return (property === 'id' && value) ? value.toString().padStart(3, '0') : value;
+    };
+
     const searchOnChange = (search) => {
         debouncer(1700, () => setSearch(search));
     };
@@ -13,25 +19,46 @@ const SearchBar = ({setSearch}) => {
             setSearch(search);
         }
     };
+
+    const handleChange = ({ target: { name, value }}) => {
+        searchOnChange({
+            property: name,
+            value: convertNumberInput(name, value)
+        });
+    };
+    const handleKeyDown = ({ target: {name, value}, code }) => {
+        searchOnEnter(code, {
+            property: name,
+            value: convertNumberInput(name, value)
+        });
+    };
+
     return (
         <section className="searchbar__container">
-            <SearchField
+            <InputField
                 placeholder="Search ..."
-                handleChange={searchOnChange}
-                handleKeyDown={searchOnEnter}
+                handleChange={handleChange}
+                handleKeyDown={handleKeyDown}
                 name="name"
+                inputType="text"
+                classNames="input-field__element"
             />
-            <SearchField
+            <InputField
                 placeholder="Number"
-                handleChange={searchOnChange}
-                handleKeyDown={searchOnEnter}
+                handleChange={handleChange}
+                handleKeyDown={handleKeyDown}
                 name="id"
+                inputType="number"
+                min="1"
+                classNames="input-field__element"
             />
-            <SearchField
+            <SelectField
                 placeholder="Type"
-                handleChange={searchOnChange}
-                handleKeyDown={searchOnEnter}
+                handleChange={handleChange}
+                handleKeyDown={handleKeyDown}
                 name="type"
+                options={TYPE_OPTIONS}
+                classNames="input-field__element"
             />
         </section>
     );
