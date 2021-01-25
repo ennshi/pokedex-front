@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PokemonList from '../../common/PokemonList/PokemonList';
 import SearchBar from '../SearchBar/SearchBar';
 import InfiniteScrollList from '../../common/InfiniteScrollList';
-import {LIMIT_POKEMONS, POKEMONS_URL} from '../../constants/FetchData';
+import {LIMIT_POKEMONS, POKEMONS_URL} from '../../constants/urls';
 import Error from '../../common/Error/Error';
 
 const Home = () => {

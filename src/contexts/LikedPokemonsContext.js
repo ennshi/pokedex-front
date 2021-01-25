@@ -1,6 +1,6 @@
 import React, {useEffect, useReducer} from 'react';
 import fetchData from '../helpers/fetchData';
-import {LIKED_POKEMON_IDS, LIKES_URL} from '../components/constants/FetchData';
+import {LIKED_POKEMON_IDS, LIKES_URL} from '../components/constants/urls';
 
 export const LikedPokemonsContext = React.createContext({});
 
