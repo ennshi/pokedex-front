@@ -1,0 +1,21 @@
+export const TYPE_OPTIONS = [
+    {value: "normal", label: "normal"},
+    {value: "electric", label: "electric"},
+    {value: "fire", label: "fire"},
+    {value: "water", label: "water"},
+    {value: "ice", label: "ice"},
+    {value: "poison", label: "poison"},
+    {value: "grass", label: "grass"},
+    {value: "fighting", label: "fighting"},
+    {value: "flying", label: "flying"},
+    {value: "steel", label: "steel"},
+    {value: "dragon", label: "dragon"},
+    {value: "psychic", label: "psychic"},
+    {value: "ground", label: "ground"},
+    {value: "rock", label: "rock"},
+    {value: "bug", label: "bug"},
+    {value: "ghost", label: "ghost"},
+    {value: "dark", label: "dark"},
+    {value: "fairy", label: "fairy"},
+];
+
