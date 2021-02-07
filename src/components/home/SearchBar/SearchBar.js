@@ -1,17 +1,18 @@
 import React from 'react';
 import InputField from '../../common/InputField/InputField';
-import {debouncer, cancelDebouncer} from '../../../helpers/debouncer';
 import './SearchBar.css';
 import SelectField from '../../common/SelectField/SelectField';
 import {TYPE_OPTIONS} from '../../constants/selectOptions';
+import useDebouncer from '../../../hooks/useDebouncer';
 
 const SearchBar = ({setSearch}) => {
+    const { setDebouncer, cancelDebouncer } = useDebouncer();
     const convertNumberInput = (property, value) => {
         return (property === 'id' && value) ? value.toString().padStart(3, '0') : value;
     };
 
     const searchOnChange = (search) => {
-        debouncer(1700, () => setSearch(search));
+        setDebouncer(1700, () => setSearch(search));
     };
     const searchOnEnter = (key, search) => {
         if(key === 'Enter') {
